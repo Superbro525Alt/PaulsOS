@@ -3,6 +3,7 @@
 #include <kernel/tty.h>
 #include <kernel/fs/fs.h>
 #include <kernel/keyboard/keyboard.h>
+#include <kernel/types.h>
 
 void kernel_main(void) {
 	terminal_initialize();
