@@ -288,12 +288,7 @@ enum Key {
 
 byte get_key_down() {
     byte keycode = 0;
-    __asm__ __volatile__ ("movb $0x00, %%ah\n\t"
-                          "int $0x16\n\t"
-                          "movb %%al, %0\n\t"
-            : "=r" (keycode)
-            :
-            : "%ah", "%al");
+    asm volatile("inb $0x60, %0" : "=a"(keycode));
     return keycode;
 }
 
@@ -305,4 +300,8 @@ int get_keycode_down(byte keycode) {
     } else {
         return 0;
     }
+}
+
+void keyboard_init() {
+
 }
