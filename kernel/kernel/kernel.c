@@ -12,10 +12,12 @@ void kernel_main(void) {
     printf("Press any key to continue...\n");
 
     keyboard_init();
-//    while (1) {
-//        byte key = get_key_down();
-//        printf("Key pressed!\n");
-//
-//    }
+    while (1) {
+        byte key = get_key_down();
+        printf("Key Pressed: ");
+        printf(keycode_to_string(key));
+        printf("\n");
+
+    }
 
 }

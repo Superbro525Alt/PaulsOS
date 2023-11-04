@@ -10,7 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10c7a561-92a5-41ac-a77e-b830eaa857d2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kernel/arch/i386/tty.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/arch/i386/tty.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kernel/include/kernel/keyboard/keyboard.h" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/include/kernel/keyboard/keyboard.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kernel/kernel/kernel.c" beforeDir="false" afterPath="$PROJECT_DIR$/kernel/kernel/kernel.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +76,7 @@
       <workItem from="1698981183101" duration="3149000" />
       <workItem from="1698984872105" duration="612000" />
       <workItem from="1699070600542" duration="64000" />
-      <workItem from="1699074900933" duration="1807000" />
+      <workItem from="1699074900933" duration="5170000" />
     </task>
     <servers />
   </component>
