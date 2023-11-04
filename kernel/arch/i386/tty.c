@@ -44,7 +44,6 @@ void terminal_putchar(char c) {
     if (uc == '\n') {
         terminal_column = 0;
         terminal_row++;
-        return;
     } else {
         if (++terminal_column == VGA_WIDTH) {
             terminal_column = 0;
@@ -56,7 +55,7 @@ void terminal_putchar(char c) {
 
     if (terminal_row == VGA_HEIGHT) {
         if (terminal_row == VGA_HEIGHT) {
-            for (size_t y = 1; y < VGA_HEIGHT; y++) {
+            for (size_t y = 0; y < VGA_HEIGHT; y++) {
                 for (size_t x = 0; x < VGA_WIDTH; x++) {
                     const size_t index = y * VGA_WIDTH + x;
                     terminal_buffer[index - VGA_WIDTH] = terminal_buffer[index];
