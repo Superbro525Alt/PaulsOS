@@ -1,11 +1,12 @@
 #pragma once
 
 typedef unsigned char byte;
+typedef unsigned char hex;
 typedef unsigned short word;
 typedef unsigned int dword;
 typedef unsigned long long qword;
 
-char **byte_to_string(byte b) {
+char **hex_to_string(hex b) {
     char *str = "";
     // if the byte is 0x12 then the string should be "0x12"
     // if the byte is 0x0A then the string should be "0x0A"

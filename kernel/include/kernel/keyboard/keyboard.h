@@ -518,25 +518,25 @@ const char* key_names[] = {
 };
 
 // keycode byte to string
-char **keycode_to_string(byte name) {
-    char hexString[10]; // Adjust the size as needed
-
-    // Use sprintf to convert the hex number to a string
-    sprintf(hexString, "0x%X", name);
-
-    return hexString;
+char **keycode_to_string(hex name) {
+    for (int i = 0; i < sizeof(key_names) / sizeof(key_names[0]); i++) {
+        if (name == i) {
+            return key_names[i];
+        }
+    }
+    return "";  // Not found
 }
 
 
-byte get_key_down() {
-    byte keycode = 0;
+hex get_key_down() {
+    hex keycode = 0;
     asm volatile("inb $0x60, %0" : "=a"(keycode));
     return keycode;
 
 }
 
-int get_keycode_down(byte keycode) {
-    byte current_keycode = get_key_down();
+int get_keycode_down(hex keycode) {
+    hex current_keycode = get_key_down();
 
     if (current_keycode == keycode) {
         return 1;

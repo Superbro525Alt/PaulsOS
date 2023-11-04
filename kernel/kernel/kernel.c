@@ -13,9 +13,9 @@ void kernel_main(void) {
 
     keyboard_init();
     while (1) {
-        byte key = get_key_down();
+        hex key = get_key_down();
         printf("Key Pressed: ");
-        printf(byte_to_string(key));
+        printf("%x", key);
         printf(" ");
         printf(keycode_to_string(key));
         printf("\n");

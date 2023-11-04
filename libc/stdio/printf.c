@@ -51,17 +51,39 @@ int printf(const char* restrict format, ...) {
 				return -1;
 			written++;
 		} else if (*format == 's') {
-			format++;
-			const char* str = va_arg(parameters, const char*);
-			size_t len = strlen(str);
-			if (maxrem < len) {
-				// TODO: Set errno to EOVERFLOW.
-				return -1;
-			}
-			if (!print(str, len))
-				return -1;
-			written += len;
-		} else {
+            format++;
+            const char *str = va_arg(parameters,
+            const char*);
+            size_t len = strlen(str);
+            if (maxrem < len) {
+                // TODO: Set errno to EOVERFLOW.
+                return -1;
+            }
+            if (!print(str, len))
+                return -1;
+            written += len;
+        } else if (*format == 'x') {
+            format++;
+            unsigned int value = va_arg(parameters,
+            unsigned int);
+            char hexString[20];  // Adjust the size as needed
+
+            // Use sprintf to format the value as a hexadecimal string
+            int result = snprintf(hexString, sizeof(hexString), "%#x", value);
+
+            if (result < 0) {
+                // Handle error
+                return -1;
+            } else if ((size_t) result >= maxrem) {
+                // TODO: Set errno to EOVERFLOW.
+                return -1;
+            } else {
+                if (!print(hexString, (size_t) result)) {
+                    return -1;
+                }
+                written += result;
+            }
+        } else {
 			format = format_begun_at;
 			size_t len = strlen(format);
 			if (maxrem < len) {
