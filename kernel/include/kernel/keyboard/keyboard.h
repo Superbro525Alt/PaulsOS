@@ -1,4 +1,5 @@
 #include <kernel/types.h>
+#include <stdio.h>
 
 enum Keys {
     LeftMouseBtn			=0x01, //Left mouse button
@@ -518,12 +519,12 @@ const char* key_names[] = {
 
 // keycode byte to string
 char **keycode_to_string(byte name) {
-    for (int i = 0; i < sizeof(key_names) / sizeof(key_names[0]); i++) {
-        if (name == i) {
-            return key_names[i];
-        }
-    }
-    return "";  // Not found
+    char hexString[10]; // Adjust the size as needed
+
+    // Use sprintf to convert the hex number to a string
+    sprintf(hexString, "0x%X", name);
+
+    return hexString;
 }
 
 
